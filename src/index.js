@@ -89,7 +89,7 @@ function create ()
   // this.physics.add.collider(player, platforms);
 
   // this.physics.add.collider(player, platforms, collectStar, null, this);
-  this.physics.add.collider(player, platforms , jumpOnPlatform(player, platforms), null, this )
+  this.physics.add.collider(player, platforms , jumpOnPlatform, null, this )
 
   
   console.log(game, 111)
@@ -124,28 +124,35 @@ function update ()
 
   if (player.y > 550)
   {
-      hitBottom(player)
+    player.setTint('0xff0000');
+
+    player.anims.play('turn');
+  
+    this.physics.pause();
+    gameOver = true;
   }
 }
 
 function jumpOnPlatform (player, platform)
 {
-  // platform.disableBody(true, true);
+  console.log('fired')
+  platform.disableBody(true, true);
   score += 10;
   scoreText.setText('Score: ' + score);
       var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400)
-      platform = platforms.create(x, 16, 'ground');
+      var y = (player.y < 400 ? Phaser.Math.Between(300, 600) : Phaser.Math.Between(0, 300))
+      platform = platforms.create(x, y, 'ground');
 }
 
-function hitBottom (player)
-{
-  console.log(player)
-  player.setTint('0xff0000');
+// function hitBottom (player)
+// {
+//   console.log(player)
+//   player.setTint('0xff0000');
 
-  player.anims.play('turn');
+//   player.anims.play('turn');
 
-  this.physics.pause();
+//   this.physics.pause();
 
 
-  gameOver = true;
-}
+//   gameOver = true;
+// }
