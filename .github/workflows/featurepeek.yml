@@ -3,7 +3,7 @@ name: Build and ping FeaturePeek
 on: push
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Use node 12.x
@@ -14,6 +14,6 @@ jobs:
     - name: Install dependencies
       run: yarn install
     - name: Build
-      run: npm run-script build
+      run: npm start
     - name: Ping FeaturePeek
       run: bash <(curl -s https://peek.run/ci)
