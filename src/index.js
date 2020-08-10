@@ -58,7 +58,7 @@ function create ()
   player = this.physics.add.sprite(300, 70, 'dude');
 
   player.setBounce(1);
-  player.setCollideWorldBounds(false);
+  player.setCollideWorldBounds(true);
 
   this.anims.create({
       key: 'left',
@@ -122,9 +122,9 @@ function update ()
       player.anims.play('turn');
   }
 
-  if (player.y > 580)
+  if (player.y > 550)
   {
-      hitBomb(player)
+      hitBottom(player)
   }
 }
 
@@ -134,16 +134,18 @@ function jumpOnPlatform (player, platform)
   score += 10;
   scoreText.setText('Score: ' + score);
       var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400)
-      platform = platforms.create(x, 16, 'platform');
+      platform = platforms.create(x, 16, 'ground');
 }
 
-function hitBomb (player)
+function hitBottom (player)
 {
-  this.physics.pause();
-
+  console.log(player)
   player.setTint('0xff0000');
 
   player.anims.play('turn');
+
+  this.physics.pause();
+
 
   gameOver = true;
 }
