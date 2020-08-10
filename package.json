@@ -1,13 +1,17 @@
 {
-  "name": "Boxie Jump",
+  "name": "phaser3-project-template",
   "version": "1.1.0",
-  "description": "A Hackathon Phaser game",
+  "description": "A Phaser 3 Project Template",
   "main": "src/index.js",
   "scripts": {
     "build": "webpack --config webpack/prod.js ",
     "start": "webpack-dev-server --config webpack/base.js --open"
   },
-  "author": "Travis Racisz",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/photonstorm/phaser3-project-template.git"
+  },
+  "author": "Richard Davey <rdavey@gmail.com> (http://www.photonstorm.com)",
   "license": "MIT",
   "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
   "bugs": {
