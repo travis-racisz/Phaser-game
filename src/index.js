@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 import sky from "./assets/sky.png"
 import ground from "./assets/platform.png"
-import dude from "./assets/dude.png"
+import dude from "./assets/playersquare.png"
 import nightsky from "./assets/nightsky.png"
 
 
@@ -106,13 +106,13 @@ function update ()
   {
       player.setVelocityX(-160);
       console.log(player.y)
-      player.anims.play('left', true);
+      // player.anims.play('left', true);
   }
   else if (cursors.right.isDown)
   {
       player.setVelocityX(160);
 
-      player.anims.play('right', true);
+      // player.anims.play('right', true);
       // hitBomb()
   }
   else
@@ -140,7 +140,7 @@ function jumpOnPlatform (player, platform)
   score += 10;
   scoreText.setText('Score: ' + score);
       var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400)
-      var y = (player.y < 400 ? Phaser.Math.Between(300, 600) : Phaser.Math.Between(0, 300))
+      var y = (player.y < 400 ? Phaser.Math.Between(300, 600) : Phaser.Math.Between(200, 600))
       platform = platforms.create(x, y, 'ground');
 }
 
